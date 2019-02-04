@@ -5,8 +5,10 @@ Forwarded: no
 Keys were not included in the mock distribution. Taken from
 the distribution-gpg-keys package.
 
+Index: xamarin-pkg-mock/mock/etc/pki/RPM-GPG-KEY-fedora-25-primary
+===================================================================
 --- /dev/null
-+++ b/etc/pki/RPM-GPG-KEY-fedora-25-primary
++++ xamarin-pkg-mock/mock/etc/pki/RPM-GPG-KEY-fedora-25-primary
 @@ -0,0 +1,32 @@
 +pub  4096R/FDB19C98 2016-03-31 Fedora 25 Primary (25) <fedora-25-primary@fedoraproject.org>
 +
@@ -40,8 +42,10 @@ the distribution-gpg-keys package.
 +kRFmBygMR6M/
 +=NrXo
 +-----END PGP PUBLIC KEY BLOCK-----
+Index: xamarin-pkg-mock/mock/etc/pki/RPM-GPG-KEY-fedora-25-secondary
+===================================================================
 --- /dev/null
-+++ b/etc/pki/RPM-GPG-KEY-fedora-25-secondary
++++ xamarin-pkg-mock/mock/etc/pki/RPM-GPG-KEY-fedora-25-secondary
 @@ -0,0 +1,55 @@
 +pub  4096R/E372E838 2016-03-31 Fedora 25 Secondary (25) <fedora-25-secondary@fedoraproject.org>
 +sub  2048g/A0582CC4 2016-03-31

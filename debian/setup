@@ -21,32 +21,32 @@ version=`dpkg-parsechangelog -S Version`
 
 install -d $DESTDIR$bindir
 install -d $DESTDIR$sbindir
-install py/mockchain.py $DESTDIR$bindir/mockchain
-install py/mock.py $DESTDIR$sbindir/mock
+install mock/py/mockchain.py $DESTDIR$bindir/mockchain
+install mock/py/mock.py $DESTDIR$sbindir/mock
 ln -s consolehelper $DESTDIR$bindir/mock
 
 install -d $DESTDIR$sysconfdir/pam.d
-cp -a etc/pam/* $DESTDIR$sysconfdir/pam.d/
+cp -a mock/etc/pam/* $DESTDIR$sysconfdir/pam.d/
 
 install -d $DESTDIR$sysconfdir/mock
-cp -a etc/mock/* $DESTDIR$sysconfdir/mock/
+cp -a mock/etc/mock/* mock-core-configs/etc/mock/* $DESTDIR$sysconfdir/mock/
 
 install -d $DESTDIR$sysconfdir/security/console.apps/
-cp -a etc/consolehelper/mock $DESTDIR$sysconfdir/security/console.apps/mock
+cp -a mock/etc/consolehelper/mock $DESTDIR$sysconfdir/security/console.apps/mock
 
 install -d $DESTDIR$datadir/bash-completion/completions/
-cp -a etc/bash_completion.d/* $DESTDIR$datadir/bash-completion/completions/
+cp -a mock/etc/bash_completion.d/* $DESTDIR$datadir/bash-completion/completions/
 ln -s mock $DESTDIR$datadir/bash-completion/completions/mockchain
 
 install -d $DESTDIR$sysconfdir/pki/mock
-cp -a etc/pki/* $DESTDIR$sysconfdir/pki/mock/
+cp -a mock/etc/pki/* $DESTDIR$sysconfdir/pki/mock/
 
 # FIXME: python modules:
 #install -d $DESTDIR%{python_sitelib}/
 #cp -a py/mockbuild $DESTDIR%{python_sitelib}/
 
 install -d $DESTDIR$mandir/man1
-cp -a docs/mockchain.1 docs/mock.1 $DESTDIR$mandir/man1/
+cp -a mock/docs/mockchain.1 mock/docs/mock.1 $DESTDIR$mandir/man1/
 
 install -d $DESTDIR/var/lib/mock
 install -d $DESTDIR/var/cache/mock

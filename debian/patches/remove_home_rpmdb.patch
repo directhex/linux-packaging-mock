@@ -8,16 +8,18 @@ install fails.
 
 Remove this directory.
 
---- a/py/mockbuild/buildroot.py
-+++ b/yp/mockbuild/buildroot.py
-@@ -221,6 +221,10 @@ class Buildroot(object):
- 
-         self.doChroot(['/usr/sbin/groupadd', '-g', dets['gid'], dets['group']],
-                       shell=False, nosync=True)
+Index: xamarin-pkg-mock/mock/py/mockbuild/buildroot.py
+===================================================================
+--- xamarin-pkg-mock.orig/mock/py/mockbuild/buildroot.py
++++ xamarin-pkg-mock/mock/py/mockbuild/buildroot.py
+@@ -301,6 +301,10 @@ class Buildroot(object):
+         if self.chrootgid != 0:
+             self.doChroot(['/usr/sbin/groupadd', '-g', dets['gid'], dets['group']],
+                           shell=False, nosync=True)
 +        homedir = self.make_chroot_path(self.homedir)
 +        if os.path.exists(homedir):
 +            util.rmtree(os.path.join(homedir, '.rpmdb')) # If it exists
 +            os.rmdir(homedir)
          self.doChroot(shlex.split(self.config['useradd'] % dets), shell=False, nosync=True)
-         self._enable_chrootuser_account()
- 
+         if not self.config['clean']:
+             self.uid_manager.changeOwner(self.make_chroot_path(self.homedir))

@@ -1,0 +1,82 @@
+Index: xamarin-pkg-mock/mock/py/mockbuild/util.py
+===================================================================
+--- xamarin-pkg-mock.orig/mock/py/mockbuild/util.py
++++ xamarin-pkg-mock/mock/py/mockbuild/util.py
+@@ -204,7 +204,7 @@ def get_machinectl_uuid(chroot_path):
+     # we will ignore errors in machinectl, it sometimes fails for various errors (cannot find IP addr...)
+     # we do not care about exit code, we just want the output
+     # RHEL7 does not know --no-legend, so we must filter the legend out
+-    vm_list = _safe_check_output(["/usr/bin/machinectl", "list", "--no-pager"])
++    vm_list = _safe_check_output(["/bin/machinectl", "list", "--no-pager"])
+     if (isinstance(vm_list, bytes)):
+         vm_list = vm_list.decode("utf-8")
+     vm_list = '\n'.join(vm_list.split('\n')[1:-2])
+@@ -212,7 +212,7 @@ def get_machinectl_uuid(chroot_path):
+         if len(name) > 0:
+             m_uuid = name.split()[0]
+             try:
+-                vm_root = _safe_check_output(["/usr/bin/machinectl", "show", "-pRootDirectory", m_uuid])
++                vm_root = _safe_check_output(["/bin/machinectl", "show", "-pRootDirectory", m_uuid])
+                 if (isinstance(vm_root, bytes)):
+                     vm_root = vm_root.decode("utf-8")
+             except subprocess.CalledProcessError:
+@@ -242,7 +242,7 @@ def orphansKill(rootToKill):
+         m_uuid = get_machinectl_uuid(rootToKill)
+         if m_uuid:
+             getLog().warning("Machine %s still running. Killing...", m_uuid)
+-            os.system("/usr/bin/machinectl terminate %s" % m_uuid)
++            os.system("/bin/machinectl terminate %s" % m_uuid)
+ 
+ 
+ @traceLog()
+Index: xamarin-pkg-mock/mock/py/mockbuild/plugins/hw_info.py
+===================================================================
+--- xamarin-pkg-mock.orig/mock/py/mockbuild/plugins/hw_info.py
++++ xamarin-pkg-mock/mock/py/mockbuild/plugins/hw_info.py
+@@ -47,7 +47,7 @@ class HwInfo(object):
+         out.write("\n\nMemory:\n")
+         out.write(output)
+ 
+-        cmd = ["/usr/bin/df", "-H", self.buildroot.make_chroot_path()]
++        cmd = ["/bin/df", "-H", self.buildroot.make_chroot_path()]
+         output = mockbuild.util.do(cmd, shell=False, returnOutput=True, raiseExc=False)
+         out.write("\n\nStorage:\n")
+         out.write(output)
+Index: xamarin-pkg-mock/mock/py/mockbuild/plugins/root_cache.py
+===================================================================
+--- xamarin-pkg-mock.orig/mock/py/mockbuild/plugins/root_cache.py
++++ xamarin-pkg-mock/mock/py/mockbuild/plugins/root_cache.py
+@@ -126,7 +126,7 @@ class RootCache(object):
+                 if self.config["tar"] == "bsdtar":
+                     __tar_cmd = "bsdtar"
+                 else:
+-                    __tar_cmd = "gtar"
++                    __tar_cmd = "tar"
+                 mockbuild.util.do(
+                     [__tar_cmd] + self.compressArgs + ["-xf", self.rootCacheFile,
+                                                        "-C", self.buildroot.make_chroot_path()],
+@@ -193,7 +193,7 @@ class RootCache(object):
+                                  "-C", self.buildroot.make_chroot_path()] + \
+                                 self.exclude_tar_cmds + ["."]
+                 else:
+-                    __tar_cmd = ["gtar", "--one-file-system", "--exclude-caches", "--exclude-caches-under"] + \
++                    __tar_cmd = ["tar", "--one-file-system", "--exclude-caches", "--exclude-caches-under"] + \
+                                  self.compressArgs + \
+                                  ["-cf", self.rootCacheFile,
+                                   "-C", self.buildroot.make_chroot_path()] + \
+Index: xamarin-pkg-mock/mock/py/mockbuild/scm.py
+===================================================================
+--- xamarin-pkg-mock.orig/mock/py/mockbuild/scm.py
++++ xamarin-pkg-mock/mock/py/mockbuild/scm.py
+@@ -185,9 +185,9 @@ class scmWorker(object):
+             if self.config["tar"] == "bsdtar":
+                 __tar_cmd = "bsdtar"
+             else:
+-                __tar_cmd = "gtar"
++                __tar_cmd = "tar"
+             # Always exclude vcs data from tarball unless told not to
+-            if str(self.exclude_vcs).lower() == "true" and __tar_cmd == 'gtar':
++            if str(self.exclude_vcs).lower() == "true" and __tar_cmd == 'tar':
+                 proc = subprocess.Popen(['tar', '--help'], shell=False, stdout=subprocess.PIPE)
+                 proc_result = proc.communicate()[0]
+                 if six.PY3:

@@ -6,892 +6,1471 @@ The RPM package depends on a package called distribution-gpg-keys.
 We don't have that in Debian. So let's just use the existing keys
 included and count on the users to maintain them.
 
---- a/etc/mock/epel-5-i386.cfg
-+++ b/etc/mock/epel-5-i386.cfg
-@@ -27,13 +27,13 @@ mdpolicy=group:primary
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/epel-5-i386.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/epel-5-i386.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/epel-5-i386.cfg
+@@ -29,14 +29,14 @@ best=1
  [core]
  name=base
- mirrorlist=http://mirrorlist.centos.org/?release=5&arch=i386&repo=os
+ baseurl=http://vault.centos.org/5.11/os/i386/
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-5
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-5
  gpgcheck=1
+ skip_if_unavailable=False
  
  [update]
  name=updates
- mirrorlist=http://mirrorlist.centos.org/?release=5&arch=i386&repo=updates
+ baseurl=http://vault.centos.org/5.11/updates/i386/
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-5
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-5
  gpgcheck=1
+ skip_if_unavailable=False
  
- [groups]
-@@ -43,7 +43,7 @@ baseurl=http://buildsys.fedoraproject.or
- [extras]
+@@ -47,7 +47,7 @@ baseurl=http://buildsys.fedoraproject.or
+ [epel]
  name=epel
  mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-5&arch=i386
 -gpgkey=file:///usr/share/distribution-gpg-keys/epel/RPM-GPG-KEY-EPEL-5
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-EPEL-5
  gpgcheck=1
+ skip_if_unavailable=False
  
- [testing]
---- a/etc/mock/epel-5-ppc.cfg
-+++ b/etc/mock/epel-5-ppc.cfg
-@@ -27,13 +27,13 @@ mdpolicy=group:primary
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/epel-5-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/epel-5-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/epel-5-x86_64.cfg
+@@ -29,14 +29,14 @@ best=1
  [core]
  name=base
- mirrorlist=http://mirrorlist.centos.org/?release=5&arch=ppc&repo=os
+ baseurl=http://vault.centos.org/5.11/os/x86_64/
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-5
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-5
  gpgcheck=1
+ skip_if_unavailable=False
  
  [update]
  name=updates
- mirrorlist=http://mirrorlist.centos.org/?release=5&arch=ppc&repo=updates
+ baseurl=http://vault.centos.org/5.11/updates/x86_64/
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-5
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-5
  gpgcheck=1
+ skip_if_unavailable=False
  
- [groups]
-@@ -43,7 +43,7 @@ baseurl=http://buildsys.fedoraproject.or
- [extras]
- name=epel
- mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-5&arch=ppc
--gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-5
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-5
- gpgcheck=1
- 
- [testing]
---- a/etc/mock/epel-5-x86_64.cfg
-+++ b/etc/mock/epel-5-x86_64.cfg
-@@ -27,13 +27,13 @@ mdpolicy=group:primary
- [core]
- name=base
- mirrorlist=http://mirrorlist.centos.org/?release=5&arch=x86_64&repo=os
--gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-5
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-5
- gpgcheck=1
- 
- [update]
- name=updates
- mirrorlist=http://mirrorlist.centos.org/?release=5&arch=x86_64&repo=updates
--gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-5
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-5
- gpgcheck=1
- 
- [groups]
-@@ -43,7 +43,7 @@ baseurl=http://buildsys.fedoraproject.or
- [extras]
+@@ -47,7 +47,7 @@ baseurl=http://buildsys.fedoraproject.or
+ [epel]
  name=epel
  mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-5&arch=x86_64
 -gpgkey=file:///usr/share/distribution-gpg-keys/epel/RPM-GPG-KEY-EPEL-5
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-EPEL-5
  gpgcheck=1
+ skip_if_unavailable=False
  
- [testing]
---- a/etc/mock/epel-6-i386.cfg
-+++ b/etc/mock/epel-6-i386.cfg
-@@ -26,7 +26,7 @@ name=BaseOS
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/epel-6-i386.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/epel-6-i386.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/epel-6-i386.cfg
+@@ -28,7 +28,7 @@ name=BaseOS
  enabled=1
  mirrorlist=http://mirrorlist.centos.org/?release=6&arch=i386&repo=os
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-6
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-6
  gpgcheck=1
+ skip_if_unavailable=False
  
- [updates]
-@@ -34,14 +34,14 @@ name=updates
+@@ -37,7 +37,7 @@ name=updates
  enabled=1
  mirrorlist=http://mirrorlist.centos.org/?release=6&arch=i386&repo=updates
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-6
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-6
  gpgcheck=1
+ skip_if_unavailable=False
  
- [epel]
+@@ -45,7 +45,7 @@ skip_if_unavailable=False
  name=epel
  mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=i386
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/epel/RPM-GPG-KEY-EPEL-6
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-EPEL-6
  gpgcheck=1
+ skip_if_unavailable=False
  
- [testing]
---- a/etc/mock/epel-6-ppc64.cfg
-+++ b/etc/mock/epel-6-ppc64.cfg
-@@ -38,7 +38,7 @@ name=epel
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/epel-6-ppc64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/epel-6-ppc64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/epel-6-ppc64.cfg
+@@ -40,7 +40,7 @@ name=epel
  mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=ppc64
  failovermethod=priority
  enabled=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/epel/RPM-GPG-KEY-EPEL-6
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-EPEL-6
  gpgcheck=1
+ skip_if_unavailable=False
  
- [testing]
---- a/etc/mock/epel-6-x86_64.cfg
-+++ b/etc/mock/epel-6-x86_64.cfg
-@@ -26,7 +26,7 @@ name=BaseOS
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/epel-6-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/epel-6-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/epel-6-x86_64.cfg
+@@ -28,7 +28,7 @@ name=BaseOS
  enabled=1
  mirrorlist=http://mirrorlist.centos.org/?release=6&arch=x86_64&repo=os
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-6
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-6
  gpgcheck=1
+ skip_if_unavailable=False
  
- [updates]
-@@ -34,14 +34,14 @@ name=updates
+@@ -37,7 +37,7 @@ name=updates
  enabled=1
  mirrorlist=http://mirrorlist.centos.org/?release=6&arch=x86_64&repo=updates
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-6
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-6
  gpgcheck=1
+ skip_if_unavailable=False
  
- [epel]
+@@ -45,14 +45,14 @@ skip_if_unavailable=False
  name=epel
  mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=x86_64
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/epel/RPM-GPG-KEY-EPEL-6
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-EPEL-6
  gpgcheck=1
+ skip_if_unavailable=False
  
- [testing]
---- a/etc/mock/epel-7-ppc64le.cfg
-+++ b/etc/mock/epel-7-ppc64le.cfg
-@@ -24,7 +24,7 @@ mdpolicy=group:primary
+ [sclo]
+ name=sclo
+ baseurl=http://mirror.centos.org/centos/6/sclo/x86_64/sclo/
+-gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-SIG-SCLo
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-SIG-SCLo
+ gpgcheck=1
+ includepkgs=devtoolset*
+ skip_if_unavailable=False
+@@ -60,7 +60,7 @@ skip_if_unavailable=False
+ [sclo-rh]
+ name=sclo-rh
+ baseurl=http://mirror.centos.org/centos/6/sclo/x86_64/rh/
+-gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-SIG-SCLo
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-SIG-SCLo
+ gpgcheck=1
+ includepkgs=devtoolset*
+ skip_if_unavailable=False
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/epel-7-aarch64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/epel-7-aarch64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/epel-7-aarch64.cfg
+@@ -25,7 +25,7 @@ best=1
+ name=BaseOS
+ baseurl=http://mirror.centos.org/altarch/7/os/aarch64/
+ failovermethod=priority
+-gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7,file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7-aarch64
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-7-aarch64
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+@@ -34,7 +34,7 @@ name=updates
+ enabled=1
+ baseurl=http://mirror.centos.org/altarch/7/updates/aarch64/
+ failovermethod=priority
+-gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7,file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7-aarch64
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-7-aarch64
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+@@ -42,7 +42,7 @@ skip_if_unavailable=False
+ name=epel
+ mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-7&arch=aarch64
+ failovermethod=priority
+-gpgkey=file:///usr/share/distribution-gpg-keys/epel/RPM-GPG-KEY-EPEL-7
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-EPEL-7
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+@@ -50,14 +50,14 @@ skip_if_unavailable=False
+ name=extras
+ baseurl=http://mirror.centos.org/altarch/7/extras/aarch64/
+ failovermethod=priority
+-gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7,file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7-aarch64
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-7-aarch64
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [sclo-rh]
+ name=sclo-rh
+ baseurl=http://mirror.centos.org/altarch/7/sclo/aarch64/rh/
+-gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-SIG-SCLo
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-SIG-SCLo
+ gpgcheck=1
+ includepkgs=devtoolset*
+ skip_if_unavailable=False
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/epel-7-ppc64le.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/epel-7-ppc64le.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/epel-7-ppc64le.cfg
+@@ -25,7 +25,7 @@ best=1
  name=BaseOS
  baseurl=http://mirror.centos.org/altarch/7/os/ppc64le/
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7,file:///usr/share/distribution-gpg-keys/centos//RPM-GPG-KEY-CentOS-SIG-AltArch-7-ppc64le
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-7,file:///usr/share/distribution-gpg-keys/centos//RPM-GPG-KEY-CentOS-SIG-AltArch-7-ppc64le
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-SIG-AltArch-7-ppc64le
  gpgcheck=1
+ skip_if_unavailable=False
  
- [updates]
-@@ -32,21 +32,21 @@ name=updates
+@@ -34,7 +34,7 @@ name=updates
  enabled=1
  baseurl=http://mirror.centos.org/altarch/7/updates/ppc64le/
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7,file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-SIG-AltArch-7-ppc64le
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-7,file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-SIG-AltArch-7-ppc64le
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-SIG-AltArch-7-ppc64le
  gpgcheck=1
+ skip_if_unavailable=False
  
- [epel]
+@@ -42,7 +42,7 @@ skip_if_unavailable=False
  name=epel
  mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-7&arch=ppc64le
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/epel/RPM-GPG-KEY-EPEL-7
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-EPEL-7
  gpgcheck=1
+ skip_if_unavailable=False
  
- [extras]
+@@ -50,14 +50,14 @@ skip_if_unavailable=False
  name=extras
  baseurl=http://mirror.centos.org/altarch/7/extras/ppc64le/
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7,file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-SIG-AltArch-7-ppc64le
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-7,file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-SIG-AltArch-7-ppc64le
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-SIG-AltArch-7-ppc64le
  gpgcheck=1
+ skip_if_unavailable=False
  
- [testing]
---- a/etc/mock/epel-7-x86_64.cfg
-+++ b/etc/mock/epel-7-x86_64.cfg
-@@ -24,7 +24,7 @@ mdpolicy=group:primary
+ [sclo-rh]
+ name=sclo-rh
+ baseurl=http://mirror.centos.org/altarch/7/sclo/ppc64le/rh/
+-gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-SIG-SCLo
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-SIG-SCLo
+ gpgcheck=1
+ includepkgs=devtoolset*
+ skip_if_unavailable=False
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/epel-7-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/epel-7-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/epel-7-x86_64.cfg
+@@ -25,7 +25,7 @@ best=1
  name=BaseOS
  mirrorlist=http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-7
  gpgcheck=1
+ skip_if_unavailable=False
  
- [updates]
-@@ -32,21 +32,21 @@ name=updates
+@@ -34,7 +34,7 @@ name=updates
  enabled=1
  mirrorlist=http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=updates
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-7
  gpgcheck=1
+ skip_if_unavailable=False
  
- [epel]
+@@ -42,7 +42,7 @@ skip_if_unavailable=False
  name=epel
  mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-7&arch=x86_64
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/epel/RPM-GPG-KEY-EPEL-7
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-EPEL-7
  gpgcheck=1
+ skip_if_unavailable=False
  
- [extras]
+@@ -50,14 +50,14 @@ skip_if_unavailable=False
  name=extras
  mirrorlist=http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=extras
  failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-7
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-7
  gpgcheck=1
+ skip_if_unavailable=False
  
- [testing]
---- a/etc/mock/fedora-23-aarch64.cfg
-+++ b/etc/mock/fedora-23-aarch64.cfg
-@@ -28,14 +28,14 @@ mdpolicy=group:primary
+ [sclo]
+ name=sclo
+ baseurl=http://mirror.centos.org/centos/7/sclo/x86_64/sclo/
+-gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-SIG-SCLo
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-SIG-SCLo
+ gpgcheck=1
+ includepkgs=devtoolset*
+ skip_if_unavailable=False
+@@ -65,7 +65,7 @@ skip_if_unavailable=False
+ [sclo-rh]
+ name=sclo-rh
+ baseurl=http://mirror.centos.org/centos/7/sclo/x86_64/rh/
+-gpgkey=file:///usr/share/distribution-gpg-keys/centos/RPM-GPG-KEY-CentOS-SIG-SCLo
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-CentOS-SIG-SCLo
+ gpgcheck=1
+ includepkgs=devtoolset*
+ skip_if_unavailable=False
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-aarch64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-25-aarch64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-aarch64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
  name=fedora
  metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-secondary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-secondary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-23-armhfp.cfg
-+++ b/etc/mock/fedora-23-armhfp.cfg
-@@ -28,14 +28,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-primary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-primary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-primary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-primary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-23-ppc64.cfg
-+++ b/etc/mock/fedora-23-ppc64.cfg
-@@ -28,14 +28,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-secondary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-secondary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-23-ppc64le.cfg
-+++ b/etc/mock/fedora-23-ppc64le.cfg
-@@ -28,14 +28,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-secondary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-secondary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-23-s390.cfg
-+++ b/etc/mock/fedora-23-s390.cfg
-@@ -28,14 +28,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-secondary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-secondary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-23-s390x.cfg
-+++ b/etc/mock/fedora-23-s390x.cfg
-@@ -28,14 +28,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-secondary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-secondary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-23-x86_64.cfg
-+++ b/etc/mock/fedora-23-x86_64.cfg
-@@ -28,14 +28,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-primary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-primary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-23-primary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-23-primary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-24-aarch64.cfg
-+++ b/etc/mock/fedora-24-aarch64.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-secondary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-secondary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-24-armhfp.cfg
-+++ b/etc/mock/fedora-24-armhfp.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-primary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-primary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-primary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-primary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-24-i386.cfg
-+++ b/etc/mock/fedora-24-i386.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-primary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-primary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-primary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-primary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-24-ppc64.cfg
-+++ b/etc/mock/fedora-24-ppc64.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-secondary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-secondary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-24-ppc64le.cfg
-+++ b/etc/mock/fedora-24-ppc64le.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-secondary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-secondary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-24-s390.cfg
-+++ b/etc/mock/fedora-24-s390.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-secondary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-secondary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-24-s390x.cfg
-+++ b/etc/mock/fedora-24-s390x.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-secondary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-secondary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-24-x86_64.cfg
-+++ b/etc/mock/fedora-24-x86_64.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-primary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-primary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-24-primary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-24-primary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-25-aarch64.cfg
-+++ b/etc/mock/fedora-25-aarch64.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-secondary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-secondary
  gpgcheck=1
+ skip_if_unavailable=False
  
  [updates]
  name=updates
  metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-secondary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-secondary
  gpgcheck=1
+ skip_if_unavailable=False
  
- [updates-testing]
---- a/etc/mock/fedora-25-armhfp.cfg
-+++ b/etc/mock/fedora-25-armhfp.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-armhfp.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-25-armhfp.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-armhfp.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
  name=fedora
  metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-primary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-primary
  gpgcheck=1
+ skip_if_unavailable=False
  
  [updates]
  name=updates
  metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-primary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-primary
  gpgcheck=1
+ skip_if_unavailable=False
  
- [updates-testing]
---- a/etc/mock/fedora-25-i386.cfg
-+++ b/etc/mock/fedora-25-i386.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-i386.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-25-i386.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-i386.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
  name=fedora
  metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-primary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-primary
  gpgcheck=1
+ skip_if_unavailable=False
  
  [updates]
  name=updates
  metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-primary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-primary
  gpgcheck=1
+ skip_if_unavailable=False
  
- [updates-testing]
---- a/etc/mock/fedora-25-ppc64.cfg
-+++ b/etc/mock/fedora-25-ppc64.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-ppc64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-25-ppc64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-ppc64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
  name=fedora
  metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-secondary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-secondary
  gpgcheck=1
+ skip_if_unavailable=False
  
  [updates]
  name=updates
  metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-secondary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-secondary
  gpgcheck=1
+ skip_if_unavailable=False
  
- [updates-testing]
---- a/etc/mock/fedora-25-ppc64le.cfg
-+++ b/etc/mock/fedora-25-ppc64le.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-ppc64le.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-25-ppc64le.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-ppc64le.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
  name=fedora
  metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-secondary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-secondary
  gpgcheck=1
+ skip_if_unavailable=False
  
  [updates]
  name=updates
  metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-secondary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-secondary
  gpgcheck=1
+ skip_if_unavailable=False
  
- [updates-testing]
---- a/etc/mock/fedora-25-s390.cfg
-+++ b/etc/mock/fedora-25-s390.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-s390x.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-25-s390x.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-s390x.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
  name=fedora
  metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-secondary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-secondary
  gpgcheck=1
+ skip_if_unavailable=False
  
  [updates]
  name=updates
  metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-secondary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-secondary
  gpgcheck=1
+ skip_if_unavailable=False
  
- [updates-testing]
---- a/etc/mock/fedora-25-s390x.cfg
-+++ b/etc/mock/fedora-25-s390x.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-25-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-25-x86_64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
  name=fedora
  metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-secondary
- gpgcheck=1
- 
- [updates]
- name=updates
- metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
--gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-secondary
-+gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-secondary
- gpgcheck=1
- 
- [updates-testing]
---- a/etc/mock/fedora-25-x86_64.cfg
-+++ b/etc/mock/fedora-25-x86_64.cfg
-@@ -29,14 +29,14 @@ mdpolicy=group:primary
- name=fedora
- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-primary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-primary
  gpgcheck=1
+ skip_if_unavailable=False
  
  [updates]
  name=updates
  metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
- failovermethod=priority
 -gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-25-primary
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-25-primary
  gpgcheck=1
+ skip_if_unavailable=False
  
- [updates-testing]
---- a/etc/mock/mageia-6-armv5tl.cfg
-+++ b/etc/mock/mageia-6-armv5tl.cfg
-@@ -30,7 +30,7 @@ name=Mageia $releasever - armv5tl
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-aarch64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-26-aarch64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-aarch64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-armhfp.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-26-armhfp.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-armhfp.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-i386.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-26-i386.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-i386.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-ppc64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-26-ppc64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-ppc64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-ppc64le.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-26-ppc64le.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-ppc64le.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-s390x.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-26-s390x.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-s390x.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-secondary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-secondary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-secondary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-secondary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-26-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-26-x86_64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-26-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-26-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-aarch64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-27-aarch64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-aarch64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-armhfp.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-27-armhfp.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-armhfp.cfg
+@@ -30,7 +30,7 @@ best=1
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+ failovermethod=priority
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+@@ -38,7 +38,7 @@ skip_if_unavailable=False
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+ failovermethod=priority
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-i386.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-27-i386.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-i386.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-ppc64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-27-ppc64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-ppc64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-ppc64le.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-27-ppc64le.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-ppc64le.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-s390x.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-27-s390x.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-s390x.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-27-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-27-x86_64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-27-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-27-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-aarch64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-28-aarch64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-aarch64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-armhfp.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-28-armhfp.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-armhfp.cfg
+@@ -30,7 +30,7 @@ best=1
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+ failovermethod=priority
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+@@ -38,7 +38,7 @@ skip_if_unavailable=False
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+ failovermethod=priority
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-i386.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-28-i386.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-i386.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-ppc64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-28-ppc64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-ppc64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-ppc64le.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-28-ppc64le.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-ppc64le.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-s390x.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-28-s390x.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-s390x.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-28-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-28-x86_64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-28-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-28-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-aarch64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-29-aarch64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-aarch64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-armhfp.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-29-armhfp.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-armhfp.cfg
+@@ -30,7 +30,7 @@ best=1
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+ failovermethod=priority
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+@@ -38,7 +38,7 @@ skip_if_unavailable=False
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+ failovermethod=priority
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-i386.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-29-i386.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-i386.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-ppc64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-29-ppc64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-ppc64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-ppc64le.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-29-ppc64le.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-ppc64le.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-s390x.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-29-s390x.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-s390x.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-29-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-29-x86_64.cfg
+@@ -29,14 +29,14 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+ [updates]
+ name=updates
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-29-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-29-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-aarch64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-rawhide-aarch64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-aarch64.cfg
+@@ -29,7 +29,7 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-$releasever-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-armhfp.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-rawhide-armhfp.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-armhfp.cfg
+@@ -29,7 +29,7 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-$releasever-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-i386.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-rawhide-i386.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-i386.cfg
+@@ -29,7 +29,7 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-$releasever-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-ppc64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-rawhide-ppc64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-ppc64.cfg
+@@ -29,7 +29,7 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-$releasever-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-ppc64le.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-rawhide-ppc64le.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-ppc64le.cfg
+@@ -29,7 +29,7 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-$releasever-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-s390x.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-rawhide-s390x.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-s390x.cfg
+@@ -29,7 +29,7 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-$releasever-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/fedora-rawhide-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/fedora-rawhide-x86_64.cfg
+@@ -29,7 +29,7 @@ best=1
+ [fedora]
+ name=fedora
+ metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
+-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-primary
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-$releasever-primary
+ gpgcheck=1
+ skip_if_unavailable=False
+ 
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-6-armv5tl.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/mageia-6-armv5tl.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-6-armv5tl.cfg
+@@ -32,7 +32,7 @@ name=Mageia $releasever - armv5tl
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=armv5tl@&section=core&repo=release
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=armv5tl&section=core&repo=release
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -40,7 +40,7 @@ name=Mageia $releasever - armv5tl - Upda
+@@ -42,7 +42,7 @@ name=Mageia $releasever - armv5tl - Upda
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=armv5tl@&section=core&repo=updates
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=armv5tl&section=core&repo=updates
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -50,7 +50,7 @@ name=Mageia $releasever - armv5tl - Debu
+@@ -52,7 +52,7 @@ name=Mageia $releasever - armv5tl - Debu
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=armv5tl@&section=core&repo=release&debug=true
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=armv5tl&section=core&repo=release&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
+ skip_if_unavailable=False
  
-@@ -60,7 +60,7 @@ name=Mageia $releasever - armv5tl - Upda
+@@ -62,7 +62,7 @@ name=Mageia $releasever - armv5tl - Upda
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=armv5tl@&section=core&repo=updates&debug=true
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=armv5tl&section=core&repo=updates&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
- 
---- a/etc/mock/mageia-6-armv7hl.cfg
-+++ b/etc/mock/mageia-6-armv7hl.cfg
-@@ -30,7 +30,7 @@ name=Mageia $releasever - armv7hl
+ skip_if_unavailable=False
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-6-armv7hl.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/mageia-6-armv7hl.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-6-armv7hl.cfg
+@@ -32,7 +32,7 @@ name=Mageia $releasever - armv7hl
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=armv7hl@&section=core&repo=release
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=armv7hl&section=core&repo=release
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -40,7 +40,7 @@ name=Mageia $releasever - armv7hl - Upda
+@@ -42,7 +42,7 @@ name=Mageia $releasever - armv7hl - Upda
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=armv7hl@&section=core&repo=updates
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=armv7hl&section=core&repo=updates
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -50,7 +50,7 @@ name=Mageia $releasever - armv7hl - Debu
+@@ -52,7 +52,7 @@ name=Mageia $releasever - armv7hl - Debu
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=armv7hl@&section=core&repo=release&debug=true
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=armv7hl&section=core&repo=release&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
+ skip_if_unavailable=False
  
-@@ -60,7 +60,7 @@ name=Mageia $releasever - armv7hl - Upda
+@@ -62,7 +62,7 @@ name=Mageia $releasever - armv7hl - Upda
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=armv7hl@&section=core&repo=updates&debug=true
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=armv7hl&section=core&repo=updates&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
- 
---- a/etc/mock/mageia-6-i586.cfg
-+++ b/etc/mock/mageia-6-i586.cfg
-@@ -30,7 +30,7 @@ name=Mageia $releasever - i586
+ skip_if_unavailable=False
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-6-i586.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/mageia-6-i586.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-6-i586.cfg
+@@ -32,7 +32,7 @@ name=Mageia $releasever - i586
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=i586@&section=core&repo=release
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=i586&section=core&repo=release
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -40,7 +40,7 @@ name=Mageia $releasever - i586 - Updates
+@@ -42,7 +42,7 @@ name=Mageia $releasever - i586 - Updates
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=i586@&section=core&repo=updates
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=i586&section=core&repo=updates
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -50,7 +50,7 @@ name=Mageia $releasever - i586 - Debug
+@@ -52,7 +52,7 @@ name=Mageia $releasever - i586 - Debug
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=i586@&section=core&repo=release&debug=true
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=i586&section=core&repo=release&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
+ skip_if_unavailable=False
  
-@@ -60,7 +60,7 @@ name=Mageia $releasever - i586 - Updates
+@@ -62,7 +62,7 @@ name=Mageia $releasever - i586 - Updates
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=i586@&section=core&repo=updates&debug=true
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=i586&section=core&repo=updates&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
- 
---- a/etc/mock/mageia-6-x86_64.cfg
-+++ b/etc/mock/mageia-6-x86_64.cfg
-@@ -31,7 +31,7 @@ name=Mageia $releasever - x86_64
+ skip_if_unavailable=False
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-6-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/mageia-6-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-6-x86_64.cfg
+@@ -33,7 +33,7 @@ name=Mageia $releasever - x86_64
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=x86_64@&section=core&repo=release
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=x86_64&section=core&repo=release
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -41,7 +41,7 @@ name=Mageia $releasever - x86_64 - Updat
+@@ -43,7 +43,7 @@ name=Mageia $releasever - x86_64 - Updat
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=x86_64@&section=core&repo=updates
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=x86_64&section=core&repo=updates
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -51,7 +51,7 @@ name=Mageia $releasever - x86_64 - Debug
+@@ -53,7 +53,7 @@ name=Mageia $releasever - x86_64 - Debug
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=x86_64@&section=core&repo=release&debug=true
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=x86_64&section=core&repo=release&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
+ skip_if_unavailable=False
  
-@@ -61,7 +61,7 @@ name=Mageia $releasever - x86_64 - Updat
+@@ -63,7 +63,7 @@ name=Mageia $releasever - x86_64 - Updat
  #metalink=https://mirrors.mageia.org/metalink?distrib=mageia-$releasever&arch=x86_64@&section=core&repo=updates&debug=true
  mirrorlist=https://www.mageia.org/mirrorlist/?release=$releasever&arch=x86_64&section=core&repo=updates&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
- 
---- a/etc/mock/mageia-cauldron-armv5tl.cfg
-+++ b/etc/mock/mageia-cauldron-armv5tl.cfg
-@@ -30,7 +30,7 @@ name=Mageia Cauldron - armv5tl
- #metalink=https://mirrors.mageia.org/metalink?distrib=cauldron&arch=armv5tl@&section=core&repo=release
- mirrorlist=https://www.mageia.org/mirrorlist/?release=cauldron&arch=armv5tl&section=core&repo=release
+ skip_if_unavailable=False
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-cauldron-aarch64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/mageia-cauldron-aarch64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-cauldron-aarch64.cfg
+@@ -32,7 +32,7 @@ name=Mageia Cauldron - aarch64
+ #metalink=https://mirrors.mageia.org/metalink?distrib=cauldron&arch=aarch64@&section=core&repo=release
+ mirrorlist=https://www.mageia.org/mirrorlist/?release=cauldron&arch=aarch64&section=core&repo=release
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -40,7 +40,7 @@ name=Mageia Cauldron - armv5tl - Debug
- #metalink=https://mirrors.mageia.org/metalink?distrib=cauldron&arch=armv5tl@&section=core&repo=release&debug=true
- mirrorlist=https://www.mageia.org/mirrorlist/?release=cauldron&arch=armv5tl&section=core&repo=release&debug=1
+@@ -42,7 +42,7 @@ name=Mageia Cauldron - aarch64 - Debug
+ #metalink=https://mirrors.mageia.org/metalink?distrib=cauldron&arch=aarch64@&section=core&repo=release&debug=true
+ mirrorlist=https://www.mageia.org/mirrorlist/?release=cauldron&arch=aarch64&section=core&repo=release&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
- 
---- a/etc/mock/mageia-cauldron-armv7hl.cfg
-+++ b/etc/mock/mageia-cauldron-armv7hl.cfg
-@@ -30,7 +30,7 @@ name=Mageia Cauldron - armv7hl
+ skip_if_unavailable=False
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-cauldron-armv7hl.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/mageia-cauldron-armv7hl.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-cauldron-armv7hl.cfg
+@@ -32,7 +32,7 @@ name=Mageia Cauldron - armv7hl
  #metalink=https://mirrors.mageia.org/metalink?distrib=cauldron&arch=armv7hl@&section=core&repo=release
  mirrorlist=https://www.mageia.org/mirrorlist/?release=cauldron&arch=armv7hl&section=core&repo=release
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -40,7 +40,7 @@ name=Mageia Cauldron - armv7hl - Debug
+@@ -42,7 +42,7 @@ name=Mageia Cauldron - armv7hl - Debug
  #metalink=https://mirrors.mageia.org/metalink?distrib=cauldron&arch=armv7hl@&section=core&repo=release&debug=true
  mirrorlist=https://www.mageia.org/mirrorlist/?release=cauldron&arch=armv7hl&section=core&repo=release&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
- 
---- a/etc/mock/mageia-cauldron-i586.cfg
-+++ b/etc/mock/mageia-cauldron-i586.cfg
-@@ -30,7 +30,7 @@ name=Mageia Cauldron - i586
+ skip_if_unavailable=False
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-cauldron-i586.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/mageia-cauldron-i586.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-cauldron-i586.cfg
+@@ -32,7 +32,7 @@ name=Mageia Cauldron - i586
  #metalink=https://mirrors.mageia.org/metalink?distrib=cauldron&arch=i586@&section=core&repo=release
  mirrorlist=https://www.mageia.org/mirrorlist/?release=cauldron&arch=i586&section=core&repo=release
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -40,7 +40,7 @@ name=Mageia Cauldron - i586 - Debug
+@@ -42,7 +42,7 @@ name=Mageia Cauldron - i586 - Debug
  #metalink=https://mirrors.mageia.org/metalink?distrib=cauldron&arch=i586@&section=core&repo=release&debug=true
  mirrorlist=https://www.mageia.org/mirrorlist/?release=cauldron&arch=i586&section=core&repo=release&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
- 
---- a/etc/mock/mageia-cauldron-x86_64.cfg
-+++ b/etc/mock/mageia-cauldron-x86_64.cfg
-@@ -31,7 +31,7 @@ name=Mageia Cauldron - x86_64
+ skip_if_unavailable=False
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-cauldron-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/mageia-cauldron-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/mageia-cauldron-x86_64.cfg
+@@ -33,7 +33,7 @@ name=Mageia Cauldron - x86_64
  #metalink=https://mirrors.mageia.org/metalink?distrib=cauldron&arch=x86_64@&section=core&repo=release
  mirrorlist=https://www.mageia.org/mirrorlist/?release=cauldron&arch=x86_64&section=core&repo=release
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=1
+ skip_if_unavailable=False
  
-@@ -41,7 +41,7 @@ name=Mageia Cauldron - x86_64 - Debug
+@@ -43,7 +43,7 @@ name=Mageia Cauldron - x86_64 - Debug
  #metalink=https://mirrors.mageia.org/metalink?distrib=cauldron&arch=x86_64@&section=core&repo=release&debug=true
  mirrorlist=https://www.mageia.org/mirrorlist/?release=cauldron&arch=x86_64&section=core&repo=release&debug=1
  gpgcheck=1
 -gpgkey=file:///usr/share/distribution-gpg-keys/mageia/RPM-GPG-KEY-Mageia
 +gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-Mageia
- failovermethod=priority
  enabled=0
+ skip_if_unavailable=False
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-leap-15.0-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/opensuse-leap-15.0-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-leap-15.0-x86_64.cfg
+@@ -32,14 +32,14 @@ excludepkgs=*.i586,*.i686
+ name=openSUSE Leap $releasever - x86_64 - OSS
+ #baseurl=http://download.opensuse.org/distribution/leap/$releasever/repo/oss/
+ metalink=http://download.opensuse.org/distribution/leap/$releasever/repo/oss/repodata/repomd.xml.metalink
+-gpgkey=file:///usr/share/distribution-gpg-keys/opensuse/RPM-GPG-KEY-openSUSE
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-openSUSE
+ gpgcheck=1
  
+ [updates-oss]
+ name=openSUSE Leap $releasever - x86_64 - Updates - OSS
+ #baseurl=http://download.opensuse.org/update/leap/$releasever/oss/
+ metalink=http://download.opensuse.org/update/leap/$releasever/oss/repodata/repomd.xml.metalink
+-gpgkey=file:///usr/share/distribution-gpg-keys/opensuse/RPM-GPG-KEY-openSUSE
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-openSUSE
+ gpgcheck=1
+ 
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-tumbleweed-aarch64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/opensuse-tumbleweed-aarch64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-tumbleweed-aarch64.cfg
+@@ -31,7 +31,7 @@ best=1
+ name=openSUSE Tumbleweed - aarch64 - OSS
+ #baseurl=http://download.opensuse.org/ports/aarch64/tumbleweed/repo/oss/
+ metalink=http://download.opensuse.org/ports/aarch64/tumbleweed/repo/oss/repodata/repomd.xml.metalink
+-gpgkey=file:///usr/share/distribution-gpg-keys/opensuse/RPM-GPG-KEY-openSUSE
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-openSUSE
+ gpgcheck=1
+ 
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-tumbleweed-i586.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/opensuse-tumbleweed-i586.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-tumbleweed-i586.cfg
+@@ -33,7 +33,7 @@ excludepkgs=*.x86_64
+ name=openSUSE Tumbleweed - i586 - OSS
+ #baseurl=http://download.opensuse.org/tumbleweed/repo/oss/
+ metalink=http://download.opensuse.org/tumbleweed/repo/oss/repodata/repomd.xml.metalink
+-gpgkey=file:///usr/share/distribution-gpg-keys/opensuse/RPM-GPG-KEY-openSUSE
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-openSUSE
+ gpgcheck=1
+ 
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-tumbleweed-ppc64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/opensuse-tumbleweed-ppc64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-tumbleweed-ppc64.cfg
+@@ -32,7 +32,7 @@ excludepkgs=*.ppc,*.ppc64le
+ name=openSUSE Tumbleweed - ppc64 - OSS
+ #baseurl=http://download.opensuse.org/ports/ppc/tumbleweed/repo/oss/
+ metalink=http://download.opensuse.org/ports/ppc/tumbleweed/repo/oss/repodata/repomd.xml.metalink
+-gpgkey=file:///usr/share/distribution-gpg-keys/opensuse/RPM-GPG-KEY-openSUSE
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-openSUSE
+ gpgcheck=1
+ 
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-tumbleweed-ppc64le.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/opensuse-tumbleweed-ppc64le.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-tumbleweed-ppc64le.cfg
+@@ -32,7 +32,7 @@ excludepkgs=*.ppc,*.ppc64
+ name=openSUSE Tumbleweed - ppc64le - OSS
+ #baseurl=http://download.opensuse.org/ports/ppc/tumbleweed/repo/oss/
+ metalink=http://download.opensuse.org/ports/ppc/tumbleweed/repo/oss/repodata/repomd.xml.metalink
+-gpgkey=file:///usr/share/distribution-gpg-keys/opensuse/RPM-GPG-KEY-openSUSE
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-openSUSE
+ gpgcheck=1
+ 
+ """
+Index: xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-tumbleweed-x86_64.cfg
+===================================================================
+--- xamarin-pkg-mock.orig/mock-core-configs/etc/mock/opensuse-tumbleweed-x86_64.cfg
++++ xamarin-pkg-mock/mock-core-configs/etc/mock/opensuse-tumbleweed-x86_64.cfg
+@@ -32,7 +32,7 @@ excludepkgs=*.i586,*.i686
+ name=openSUSE Tumbleweed - x86_64 - OSS
+ #baseurl=http://download.opensuse.org/tumbleweed/repo/oss/
+ metalink=http://download.opensuse.org/tumbleweed/repo/oss/repodata/repomd.xml.metalink
+-gpgkey=file:///usr/share/distribution-gpg-keys/opensuse/RPM-GPG-KEY-openSUSE
++gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-openSUSE
+ gpgcheck=1
+ 
+ """

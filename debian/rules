@@ -5,7 +5,7 @@
 # FIXME: this should be removed in the future
 override_dh_clean:
 	dh_clean
-	chmod a+x py/mockbuild/trace_decorator.py
+	chmod a+x mock/py/mockbuild/trace_decorator.py
 
 override_dh_auto_install:
 	./debian/setup $(CURDIR)/debian/mock
