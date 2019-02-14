@@ -1,4 +1,4 @@
-fedora25_key.patch
+bundle_distribution_gpg_keys.patch
 pam_debian.patch
 remove_home_rpmdb.patch
 spelling.patch
