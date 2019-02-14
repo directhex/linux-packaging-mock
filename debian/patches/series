@@ -2,7 +2,6 @@ bundle_distribution_gpg_keys.patch
 pam_debian.patch
 remove_home_rpmdb.patch
 spelling.patch
-no_dnf.patch
 console_helper_path.patch
 gpg_keys_path.patch
 fix_paths.patch

@@ -18,7 +18,7 @@ Package: mock
 Architecture: all
 Depends: python, ${misc:Depends}, ${python3:Depends},
  python3-rpm, yum (>> 3.2.26), usermode, yum-utils, python3-six,
- python3-pyroute2, python3-distro, systemd-container
+ python3-pyroute2, python3-distro, systemd-container, dnf
 Suggests: pigz
 Description: Build rpm packages inside a chroot
  Mock creates chroots and builds rpms in them. Its only task is to
