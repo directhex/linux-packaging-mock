@@ -1,3 +1,10 @@
+mock (1.4.13-0xamarin2) xenial; urgency=medium
+
+  * [ec480c1] Bundle ALL the distribution-gpg-keys keys, not just Fedora 25
+  * [145cc24] Don't fear DNF, it is our friend
+
+ -- Jo Shields <joshield@microsoft.com>  Thu, 14 Feb 2019 14:02:42 -0500
+
 mock (1.4.13-0xamarin1) xenial; urgency=medium
 
   * [c4edb43] New upstream version 1.4.13
