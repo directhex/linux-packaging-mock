@@ -1,3 +1,9 @@
+mock (1.4.13-0xamarin3) xenial; urgency=medium
+
+  * [b2fc540] Hard dep on dnf-plugins-core, for builddep.py
+
+ -- Jo Shields <joshield@microsoft.com>  Fri, 15 Feb 2019 09:48:05 -0500
+
 mock (1.4.13-0xamarin2) xenial; urgency=medium
 
   * [ec480c1] Bundle ALL the distribution-gpg-keys keys, not just Fedora 25
