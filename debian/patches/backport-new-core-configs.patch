@@ -3,8 +3,8 @@ Index: xamarin-pkg-mock/mock-core-configs/etc/mock/epel-8-aarch64.cfg
 --- /dev/null
 +++ xamarin-pkg-mock/mock-core-configs/etc/mock/epel-8-aarch64.cfg
 @@ -0,0 +1,6 @@
-+include('templates/centos-8.tpl')
-+include('templates/epel-8.tpl')
++include('/etc/mock/templates/centos-8.tpl')
++include('/etc/mock/templates/epel-8.tpl')
 +
 +config_opts['root'] = 'epel-8-aarch64'
 +config_opts['target_arch'] = 'aarch64'
@@ -14,8 +14,8 @@ Index: xamarin-pkg-mock/mock-core-configs/etc/mock/epel-8-ppc64le.cfg
 --- /dev/null
 +++ xamarin-pkg-mock/mock-core-configs/etc/mock/epel-8-ppc64le.cfg
 @@ -0,0 +1,6 @@
-+include('templates/centos-8.tpl')
-+include('templates/epel-8.tpl')
++include('/etc/mock/templates/centos-8.tpl')
++include('/etc/mock/templates/epel-8.tpl')
 +
 +config_opts['root'] = 'epel-8-ppc64le'
 +config_opts['target_arch'] = 'ppc64le'
@@ -25,8 +25,8 @@ Index: xamarin-pkg-mock/mock-core-configs/etc/mock/epel-8-x86_64.cfg
 --- /dev/null
 +++ xamarin-pkg-mock/mock-core-configs/etc/mock/epel-8-x86_64.cfg
 @@ -0,0 +1,6 @@
-+include('templates/centos-8.tpl')
-+include('templates/epel-8.tpl')
++include('/etc/mock/templates/centos-8.tpl')
++include('/etc/mock/templates/epel-8.tpl')
 +
 +config_opts['root'] = 'epel-8-x86_64'
 +config_opts['target_arch'] = 'x86_64'
@@ -69,7 +69,7 @@ Index: xamarin-pkg-mock/mock-core-configs/etc/mock/rhel-8-aarch64.cfg
 --- /dev/null
 +++ xamarin-pkg-mock/mock-core-configs/etc/mock/rhel-8-aarch64.cfg
 @@ -0,0 +1,4 @@
-+include('templates/rhel-8.tpl')
++include('/etc/mock/templates/rhel-8.tpl')
 +
 +config_opts['target_arch'] = 'aarch64'
 +config_opts['legal_host_arches'] = ('aarch64',)
@@ -78,7 +78,7 @@ Index: xamarin-pkg-mock/mock-core-configs/etc/mock/rhel-8-ppc64.cfg
 --- /dev/null
 +++ xamarin-pkg-mock/mock-core-configs/etc/mock/rhel-8-ppc64.cfg
 @@ -0,0 +1,4 @@
-+include('templates/rhel-8.tpl')
++include('/etc/mock/templates/rhel-8.tpl')
 +
 +config_opts['target_arch'] = 'ppc64'
 +config_opts['legal_host_arches'] = ('ppc64',)
@@ -87,7 +87,7 @@ Index: xamarin-pkg-mock/mock-core-configs/etc/mock/rhel-8-ppc64le.cfg
 --- /dev/null
 +++ xamarin-pkg-mock/mock-core-configs/etc/mock/rhel-8-ppc64le.cfg
 @@ -0,0 +1,4 @@
-+include('templates/rhel-8.tpl')
++include('/etc/mock/templates/rhel-8.tpl')
 +
 +config_opts['target_arch'] = 'ppc64le'
 +config_opts['legal_host_arches'] = ('ppc64le',)
@@ -96,7 +96,7 @@ Index: xamarin-pkg-mock/mock-core-configs/etc/mock/rhel-8-x86_64.cfg
 --- /dev/null
 +++ xamarin-pkg-mock/mock-core-configs/etc/mock/rhel-8-x86_64.cfg
 @@ -0,0 +1,4 @@
-+include('templates/rhel-8.tpl')
++include('/etc/mock/templates/rhel-8.tpl')
 +
 +config_opts['target_arch'] = 'x86_64'
 +config_opts['legal_host_arches'] = ('x86_64',)
@@ -105,8 +105,8 @@ Index: xamarin-pkg-mock/mock-core-configs/etc/mock/rhelepel-8-aarch64.cfg
 --- /dev/null
 +++ xamarin-pkg-mock/mock-core-configs/etc/mock/rhelepel-8-aarch64.cfg
 @@ -0,0 +1,4 @@
-+include('templates/rhel-8-aarch64.cfg')
-+include('templates/epel-8.tpl')
++include('/etc/mock/templates/rhel-8-aarch64.cfg')
++include('/etc/mock/templates/epel-8.tpl')
 +
 +config_opts['root'] = "rhelepel-8-{{ target_arch }}"
 Index: xamarin-pkg-mock/mock-core-configs/etc/mock/rhelepel-8-ppc64.cfg
@@ -114,8 +114,8 @@ Index: xamarin-pkg-mock/mock-core-configs/etc/mock/rhelepel-8-ppc64.cfg
 --- /dev/null
 +++ xamarin-pkg-mock/mock-core-configs/etc/mock/rhelepel-8-ppc64.cfg
 @@ -0,0 +1,4 @@
-+include('templates/rhel-8-ppc64.cfg')
-+include('templates/epel-8.tpl')
++include('/etc/mock/templates/rhel-8-ppc64.cfg')
++include('/etc/mock/templates/epel-8.tpl')
 +
 +config_opts['root'] = "rhelepel-8-{{ target_arch }}"
 Index: xamarin-pkg-mock/mock-core-configs/etc/mock/rhelepel-8-ppc64le.cfg
@@ -123,8 +123,8 @@ Index: xamarin-pkg-mock/mock-core-configs/etc/mock/rhelepel-8-ppc64le.cfg
 --- /dev/null
 +++ xamarin-pkg-mock/mock-core-configs/etc/mock/rhelepel-8-ppc64le.cfg
 @@ -0,0 +1,4 @@
-+include('templates/rhel-8-ppc64le.cfg')
-+include('templates/epel-8.tpl')
++include('/etc/mock/templates/rhel-8-ppc64le.cfg')
++include('/etc/mock/templates/epel-8.tpl')
 +
 +config_opts['root'] = "rhelepel-8-{{ target_arch }}"
 Index: xamarin-pkg-mock/mock-core-configs/etc/mock/rhelepel-8-x86_64.cfg
@@ -132,8 +132,8 @@ Index: xamarin-pkg-mock/mock-core-configs/etc/mock/rhelepel-8-x86_64.cfg
 --- /dev/null
 +++ xamarin-pkg-mock/mock-core-configs/etc/mock/rhelepel-8-x86_64.cfg
 @@ -0,0 +1,4 @@
-+include('templates/rhel-8-x86_64.cfg')
-+include('templates/epel-8.tpl')
++include('/etc/mock/templates/rhel-8-x86_64.cfg')
++include('/etc/mock/templates/epel-8.tpl')
 +
 +config_opts['root'] = "rhelepel-8-{{ target_arch }}"
 Index: xamarin-pkg-mock/mock-core-configs/etc/mock/templates/amazonlinux-2.tpl
