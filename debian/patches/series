@@ -5,3 +5,4 @@ spelling.patch
 console_helper_path.patch
 gpg_keys_path.patch
 fix_paths.patch
+backport-new-core-configs.patch
